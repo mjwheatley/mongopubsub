@@ -3,7 +3,7 @@
 Mongopubsub is a pub/sub implementation for Node.js and MongoDB. It utilizes Mongo's capped collections and tailable cursors to notify subscribers of inserted documents that match a given query.
 
 [![NPM](https://img.shields.io/npm/v/mongopubsub.svg?style=flat)](http://npm.im/mongopubsub)
-[![Build Status](https://img.shields.io/travis/vladotesanovic/mongopubsub.svg?style=flat)](https://travis-ci.org/vladotesanovic/mongopubsub)
+[![Build Status](https://img.shields.io/travis/vladotesanovic/mpubsub.svg?style=flat)](https://travis-ci.org/vladotesanovic/mpubsub)
 
 ## Example
 
