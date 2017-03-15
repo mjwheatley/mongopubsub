@@ -1,16 +1,16 @@
-## Mpubsub
+## Mongopubsub
 
-Mpubsub is a pub/sub implementation for Node.js and MongoDB.  It utilizes Mongo's capped collections and tailable cursors to notify subscribers of inserted documents that match a given query.
+Mongopubsub is a pub/sub implementation for Node.js and MongoDB. It utilizes Mongo's capped collections and tailable cursors to notify subscribers of inserted documents that match a given query.
 
-[![NPM](https://img.shields.io/npm/v/mpubsub.svg?style=flat)](http://npm.im/mpubsub)
-[![Build Status](https://img.shields.io/travis/vladotesanovic/mpubsub.svg?style=flat)](https://travis-ci.org/vladotesanovic/mpubsub)
+[![NPM](https://img.shields.io/npm/v/mongopubsub.svg?style=flat)](http://npm.im/mongopubsub)
+[![Build Status](https://img.shields.io/travis/vladotesanovic/mongopubsub.svg?style=flat)](https://travis-ci.org/vladotesanovic/mongopubsub)
 
 ## Example
 
 ```javascript
-var mpubsub = require('mpubsub');
+var mongopubsub = require('mongopubsub');
 
-var client = mpubsub('mongodb://localhost:27017/mpubsub_example');
+var client = mongopubsub('mongodb://localhost:27017/mongopubsub_example');
 var channel = client.channel('test');
 
 client.on('error', console.error);
@@ -36,20 +36,20 @@ channel.publish('baz', 'baz');
 You can pass a Db instance or a URI string. For more information about the URI format visit [http://mongodb.github.io/node-mongodb-native/driver-articles/mongoclient.html](http://mongodb.github.io/node-mongodb-native/driver-articles/mongoclient.html)
 
 ```javascript
-var mpubsub = require('mpubsub');
+var mongopubsub = require('mongopubsub');
 
 // Using a URI
-var client = mpubsub('mongodb://localhost:27017/mpubsub_example', [options]);
+var client = mongopubsub('mongodb://localhost:27017/mongopubsub_example', [options]);
 
 // Passing a MongoDB driver `Db` instance directly.
-var client = mpubsub(new Db(...));
+var client = mongopubsub(new Db(...));
 ```
 
 ### Channels
 
-A channel maps one-to-one with a capped collection (Mpubsub will create these if they do not already exist in the database).  Optionally specify the byte size of the collection and/or the max number of documents in the collection when creating a channel.
+A channel maps one-to-one with a capped collection (Mongopubsub will create these if they do not already exist in the database).  Optionally specify the byte size of the collection and/or the max number of documents in the collection when creating a channel.
 
-**WARNING**: You should not create lots of channels because Mpubsub will poll from the cursor position.
+**WARNING**: You should not create lots of channels because Mongopubsub will poll from the cursor position.
 
 ```javascript
 var channel = client.channel('foo', { size: 100000, max: 500 });
@@ -98,7 +98,7 @@ channel.on('message', console.log);
 // Document was inserted
 channel.on('document', console.log);
 
-// Mpubsub is ready to receive new documents
+// mongopubsub is ready to receive new documents
 channel.on('ready', console.log);
 
 // Connection error
@@ -118,7 +118,7 @@ Closes the MongoDB connection.
 
 ## Install
 
-    npm install mpubsub
+    npm install mongopubsub
 
 ## Tests
 
@@ -126,5 +126,5 @@ Closes the MongoDB connection.
 
 You can optionally specify the MongoDB URI to be used for tests:
 
-    MONGODB_URI=mongodb://localhost:27017/mpubsub_tests make test
+    MONGODB_URI=mongodb://localhost:27017/mongopubsub_tests make test
 
