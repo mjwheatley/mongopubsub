@@ -3,12 +3,10 @@
 Mongopubsub is a pub/sub implementation for Node.js and MongoDB. It utilizes Mongo's capped collections and tailable
 cursors to notify subscribers of inserted documents that match a given query.
 
-[![NPM](https://img.shields.io/npm/v/mongopubsub.svg?style=flat)](http://npm.im/mongopubsub)
-
 ## Example
 
 ```javascript
-import { MubSub } from 'mongopubsub';
+import { MubSub } from '@mawhea/mongopubsub';
 import mongoose from 'mongoose';
 import { Db } from 'mongodb';
 
@@ -62,7 +60,7 @@ await run();
 
 You pass a Db instance in the constructure options
 ```javascript
-import { MubSub } from 'mongopubsub';
+import { MubSub } from '@mawhea/mongopubsub';
 import mongoose from 'mongoose';
 
 await mongoose.connect(MONGODB_URI);
@@ -161,7 +159,7 @@ Closes the MongoDB connection.
 
 ## Install
 
-    npm install mongopubsub
+    npm install @mawhea/mongopubsub
 
 ## Tests
 

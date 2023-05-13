@@ -1,9 +1,9 @@
 {
-  "name": "mongopubsub",
+  "name": "@mawhea/mongopubsub",
   "version": "1.0.0",
   "description": "Pub/sub for Node.js and MongoDB",
-  "homepage": "http://github.com/vladotesanovic/mongopubsub",
-  "author": "Vlado Tešanović <vlado.tesanovic@gmail.com>",
+  "homepage": "https://github.com/mjwheatley/mongopubsub",
+  "author": "Matthew Wheatley <mattjwheatley@gmail.com>",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -39,7 +39,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/vladotesanovic/mongopubsub.git"
+    "url": "git://github.com/mjwheatley/mongopubsub.git"
   },
   "scripts": {
     "build": "tsc -p .",
