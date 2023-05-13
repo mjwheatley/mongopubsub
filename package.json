@@ -5,16 +5,25 @@
   "homepage": "http://github.com/vladotesanovic/mongopubsub",
   "author": "Vlado Tešanović <vlado.tesanovic@gmail.com>",
   "license": "MIT",
-  "main": "./lib/index",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "typescript": {
+    "definition": "dist/index.d.ts"
+  },
   "keywords": [
     "mongodb",
     "pubsub",
     "mongopubsub",
     "pub",
     "sub",
-    "capped collection"
+    "capped collection",
+    "tailable cursor"
   ],
   "contributors": [
+    {
+      "name": "Matthew Wheatley",
+      "email": "mattjwheatley@gmail.com"
+    },
     {
       "name": "Scott Nelson",
       "email": "scott@scttnlsn.com"
@@ -32,17 +41,33 @@
     "type": "git",
     "url": "git://github.com/vladotesanovic/mongopubsub.git"
   },
-  "dependencies": {
-    "mongodb": "^2.0.35"
-  },
-  "devDependencies": {
-    "mocha": "^2.2.5"
-  },
   "scripts": {
-    "test": "mocha test --timeout 10000",
+    "build": "tsc -p .",
+    "lint": "eslint src --ext ts",
+    "watch": "tsc-watch --noClear -p ./tsconfig.json",
+    "test": "jest",
+    "prepare": "npm run build",
     "publish": "git push origin && git push origin --tags",
     "release:patch": "npm version patch && npm publish",
     "release:minor": "npm version minor && npm publish",
     "release:major": "npm version major && npm publish"
-  }
+  },
+  "peerDependencies": {
+    "mongodb": "^5.3.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.1",
+    "@types/node": "16.11.7",
+    "@typescript-eslint/eslint-plugin": "^5.36.0",
+    "@typescript-eslint/parser": "^5.36.0",
+    "eslint": "8.22.0",
+    "mongoose": "^7.1.0",
+    "ts-jest": "^29.1.0",
+    "ts-node": "^10.9.1",
+    "tsc-watch": "^4.4.0",
+    "typescript": "^4.8.2"
+  },
+  "files": [
+    "dist/"
+  ]
 }
